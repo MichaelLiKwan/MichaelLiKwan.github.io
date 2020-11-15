@@ -14,8 +14,10 @@
         const coordinates = [];
 
         record.addEventListener("click", () => {
-            navigator.geolocation.watchPosition(
+            navigator.geolocation.getCurrentPosition (
                 data => {
+                    alert(data.coords.latitude)
+                    alert(data.coords.longitude)
                     console.log(data)
                     coordinates.push([data.coords.latitude, data.coords.longitude])
                     window.localStorage.setItem("coordinates", JSON.stringify(coordinates))
